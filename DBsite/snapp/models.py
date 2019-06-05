@@ -20,8 +20,8 @@ class Person(models.Model):
     # add regex
     phone_number = models.CharField(max_length=15)
 
-    def __str__(self):
-        return (self.first_name, self.last_name)
+    # def __str__(self):
+    #     return self.first_name, self.last_name
 
 
 class Employee(Person):
@@ -31,7 +31,7 @@ class Employee(Person):
     education = models.CharField(max_length = 20)
 
     def __str__(self):
-        return (self.first_name, self.last_name)
+        return self.first_name, self.last_name
 
 
 class Driver(Person):
@@ -42,7 +42,7 @@ class Driver(Person):
     employee_of_driver = models.ForeignKey('Employee', on_delete=models.CASCADE)
 
     def __str__(self):
-        return (self.first_name, self.last_name)
+        return self.first_name, self.last_name
 
 
 class Passenger(Person):
@@ -51,7 +51,7 @@ class Passenger(Person):
     selected_addresses = models.CharField(max_length = 200)
 
     def __str__(self):
-        return (self.first_name, self.last_name)
+        return self.first_name, self.last_name
 
 
 class Trip(models.Model):
